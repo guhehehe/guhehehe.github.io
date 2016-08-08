@@ -1,0 +1,33 @@
+name: "Keep It Simple and Stupid"
+description:
+
+url:
+author: "He Gu"
+email: "gh1z114@gmail.com"
+baseurl: ""
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+
+nav:
+  - name: "About"
+    href: "/about"
+
+sass:
+  style: :compressed
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+gems:
+  - jekyll-seo-tag
