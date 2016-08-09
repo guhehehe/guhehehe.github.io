@@ -28,6 +28,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      comments: true
 
 gems:
   - jekyll-seo-tag
