@@ -54,7 +54,7 @@ will be the last element of an LIS of length `k`. If `k <= l`, `L[k] <= A[i]`, r
 invariant. If `k > l`, `A[i]` will be the last element of the LIS of length `k+1`, updating `L[k+1]` to `A[i]` holds
 the invariant.
 
-Termination:
+Termination
 : At the end of last loop, we will have `L` store all of the smallest last elements of the LISes of some length, at the
 index equal to the length.
 
