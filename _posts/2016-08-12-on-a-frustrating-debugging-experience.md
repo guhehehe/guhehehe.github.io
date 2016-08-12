@@ -66,13 +66,13 @@ done
 As you can see, the code lists a bunch of JVM processes, matches some pattern in each line of the outputs and replace
 the whole line with the first occurrence. But `sed` by default prints everything, even when the match fails. If the
 match fails, it will print the raw unmatched line as is. In my case, the line of Spark worker JVM gets printed and
-feeded to the for loop, which breaks the line into words, and eventually the pid of the Spark worker gets found and
+fed to the for loop, which breaks the line into words, and eventually the pid of the Spark worker gets found and
 killed. To fix it, just silent `sed` to make it not print anything on match fail:
 `sed -n 's/^.*\(application_[0-9]*_[0-9]*\)\/.*$/\1/p'`
 
-So lessons learnt from this. I was so convinced that if the program fails, it must be either the program itself, or the
+So lessons learnt from this. I was so convinced that if a program fails, it must be either the program itself, or the
 operating system, even when there was nothing logged in the system logs, which I should've pay enough attention about
 what it means. OSes are mature and extensively tested in production, it would be super rare that events such as process
-being killed is not logged if not never, so just trust the log, if no log shows that it's the OS did it, then it didn't
-do it. Also, when I start to believe that the OS killed my job and didn't find any clue in the logs, I should go
+being killed is not logged if never, so just trust the log, if no log shows that it's the OS did it, then it didn't
+do it. Also, when I start to believe that the OS killed my job and didn't find any clue in the logs, I should've  gone
 directly to figure out who killed the process, that's the right track to take.
