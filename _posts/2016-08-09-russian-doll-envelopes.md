@@ -28,7 +28,7 @@ To be able to update `L` while a longer LIS is found, we need to store in `L[l]`
 wouldn't be able to update since `L[l+1] == A[i] > A[i+k+q]`. So when we are at `i+k`, we need to replace `L[l]` with
 `A[i+k]`. This leaves us with the following invariant:
 
-    L[k] is the smallest last element among all LISes of length k
+<p><div align="center">L[k] is the smallest last element among all LISes of length k</div></p>
 
 we can achieve it by the follwing pseudo code:
 
