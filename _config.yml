@@ -52,6 +52,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      author: "He Gu"
       comments: true
 
 gems:
