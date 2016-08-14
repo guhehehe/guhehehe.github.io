@@ -27,6 +27,11 @@ kramdown:
           line_numbers: true
           start_line: 1
 
+disqus:
+    shortname: "guhehehe-github-io"
+    url: "https://guhehehe.github.io"
+    identifier: 1
+
 nav:
   - name: "About"
     href: "/about"
