@@ -6,7 +6,7 @@ Given two sorted arrays `A` and `B`, find the k<sup>th</sup> greatest element of
 
 Take the i<sup>th</sup> element from array `A` and the j<sup>th</sup> element from array `B` so that `i + j == k`, we
 can see that if `B[j] <= A[i] <= B[j+1]`, then `A[i]` must be the k<sup>th</sup> element of all elements in `A` and
-`B`. So now we have two scenarios to consider:
+`B`. So now we have 3 scenarios to consider:
 
 1. `A[i] == B[j]`, then either `A[i]` or `B[j]` is the k<sup>th</sup> element
 2. `A[i] < B[j]`, then the k<sup>th</sup> element must be in `A[i+1..A.length]` or `B[1..j]`
@@ -19,7 +19,7 @@ to show that the k<sup>th</sup> element must be in `B[1..j]`.
 
 ```
 // assume that k is always less than A.length + B.length
-def find_k_th_element(A, B, k)
+def k_th_element(A, B, k)
     if A.length > B.length:
         swap(A, B) // make sure A is always the smaller one
     if A.length == 0:
@@ -31,7 +31,7 @@ def find_k_th_element(A, B, k)
     if A[i] == B[j]:
         return A[i]
     else if A[i] < B[j]:
-        return find_k_th_element(A[i+1..A.length], B[1..j], k - i)
+        return k_th_element(A[i+1..A.length], B[1..j], k - i)
     else:
-        return find_k_th_element(A[1..i], B[j+1..B.length], k - i)
+        return k_th_element(A[1..i], B[j+1..B.length], k - j)
 ```
